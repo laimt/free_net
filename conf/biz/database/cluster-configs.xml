@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--           
     shard-type:  分库类型
     range: 范围分库
@@ -6,15 +7,15 @@
     hash-str : string取模分库（用户中心取模算法）
     shard-column: 分库字段
 -->
-<configs>
-    <!--
+<configs> 
+  <!--
         <config class="demo.ddl.Demo" source="mysql" shard-type="hash"
             shard-column="id" comment="测试">
             <map client="vdb_01">0</map>
             <map client="vdb_02">1</map>
         </config>
-        -->
-    <!--
+        -->  
+  <!--
         <config class="demo.ddl.Demo" source="mysql" shard-type="none"
             comment="测试-不分库场景">
             <map client="vdb_01">0</map>
@@ -49,5 +50,11 @@
                 <map client="vdb_02">1</map>
             </range>
         </config>
-        -->
+        -->  
+  <config shard-type="none" source="mysql" class="moudles.domain.ddl.FnDomainConfDDL" comment=""> 
+    <map client="dbbase"/> 
+  </config>  
+  <config shard-type="none" source="mysql" class="moudles.basic.ddl.FnBasicConfDDL" comment="">
+    <map client="dbbase"/>
+  </config>
 </configs>

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<classes>
-    <!--
+
+<classes> 
+  <!--
         <package name="demo.ddl">
             <class name="Demo" comment="测试" />
         </package>
-        -->
+        -->  
+  <package name="moudles.domain.ddl"> 
+    <class name="FnDomainConfDDL" comment=""/> 
+  </package>  
+  <package name="moudles.basic.ddl">
+    <class name="FnBasicConfDDL" comment=""/>
+  </package>
 </classes>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>配置列表</title>
+    <link rel="stylesheet" href="/public/css/layout.css">
+    <link rel="stylesheet" href="/public/css/beautify.css">
+    <link rel="stylesheet"  href="/public/css/jquery.datetimepicker.css" />
+    <script src="/public/js/jquery-1.11.3.min.js"></script>
+    <script src="/public/js/layout.js"></script>
+    <script src="/public/js/validate.js"></script>
+    <style>
+        .nav-selected{
+            background: url("/public/images/nva_selected.png") no-repeat;
+            width: 187px;
+            height: 44px;
+            line-height: 44px;
+        }
+        input{
+            background: #eaeaea;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+	#{include file="web/common/nav_common.html" /}
+        <div col="100%" class="f-ly-relative f-line-b-da f-bg-ff f-ft-size-18 f-ly-padding-l-16" height="60"  style="line-height: 60px;">
+            <span rid="nav1" class="f-ft-color-8c8a8a">渠道管理后台 > </span>
+            <span left="nav1>20" class="f-ft-color-00">留存率</span>
+            <a href=""  rid="nav2" right="20" top="10"><img  src="/public/images/logout.png"/></a>
+        </div>
+
+		<form id="searchForm" action="" method="get">
+	        <div col="100%" class=" f-ft-size-14 f-bg-ff f-ly-margin-l-16 f-ly-margin-r-16 f-ly-margin-t-16 f-ly-margin-b-16 f-ly-padding-l-16"
+	             style="height: 80px;line-height: 80px;">
+	            	渠道名称:  
+	            	<input type="text" name="sChName" value="" id="autoChannelComplete"  placeholder="请输入渠道名称" style="background: #eaeaea;"/>&nbsp;&nbsp;
+	                <input type="hidden" id="autoChannelCompleteHidden" name="req.ch" value=""/>
+	            	游戏名称:  
+	                <input type="text" name="sGame" value="" id="autoGameComplete" placeholder="请输入游戏名称" style="background: #eaeaea;"/>
+	                <input type="hidden" id="autoGameCompleteHidden" name="req.gameId" value=""/>
+                &nbsp;&nbsp; <a id="searchRetention" href="javascript:void(0);" class="f-btn-search" >搜 索</a>
+                <a href="javascript:void(0);" onclick="reset('searchForm')" class="f-btn-reset" >重 置</a>
+                &nbsp;&nbsp;&nbsp;&nbsp; <a id="exportExcel" href="javascript:void(0);" class="f-btn-reset" >导 出</a>
+                	<input type="hidden" id="export" name="export" style="background: #eaeaea;"/>
+            </div>
+        </form>
+       
+       <div col="100%" style="height: 35px;line-height: 35px;" class="f-ly-column f-bg-fbfbd9 f-ft-size-12 f-bg-ff f-ly-margin-l-16 f-ly-margin-r-16 f-ly-padding-l-16 f-ly-text-align" >
+			            	<div col="15%" class="f-word-ellipsis">域名</div>
+			            	<div col="15%" class="f-word-ellipsis">IP</div>
+			            	<div col="15%" class="f-word-ellipsis">密码</div>
+			            	<div col="15%" class="f-word-ellipsis">加密方法</div>
+			            	<div col="15%" class="f-word-ellipsis">端口</div>
+		        </div>
+        		#{list items:pageData.list,as:'data'}        
+			        <div style="height: 35px;line-height: 35px;" class="f-ly-column  f-ft-size-14 f-bg-ff f-ly-margin-l-16 f-ly-margin-r-16  f-ly-margin-b-1 f-ly-padding-l-16 f-ly-text-align">
+			            <div col="15%"  class="f-word-ellipsis">${data.domainName}</div>
+			            <div col="15%"  class="f-word-ellipsis">${data.domainIp}</div>
+			            <div col="15%"  class="f-word-ellipsis">${data.password}</div>
+			            <div col="15%"  class="f-word-ellipsis">${data.encryMethod}</div>
+			            <div col="15%"  class="f-word-ellipsis">${data.port}</div>
+		            </div>
+			    #{/list}
+	        <div col="100%" class=" " style="padding: 16px;text-align: center;margin:auto;">
+	            #{include file="web/common/page_new.html" /}
+	        </div>
+	    </div>
+	    </div>
+</div>   
+</body>
+<script type="text/javascript">
+	var maxW = -1;
+	var h = $(document).height();
+	$(".left-nav").height(h);
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!-- 分页 begin --> 
+#{if pageData!=null && pageData.getTotalPage() > 1}
+    <div class="page-change" style="float:right;">    	
+    	#{if pageData.isFirstPage()}
+    	<a target="_self" class="btn ctrl no" href='javascript:void(0);'>首页</a>
+    	<a target="_self" class="btn ctrl no" href='javascript:void(0);'>上一页</a>
+       	#{/if}
+        #{else}
+        <a target="_self" class="btn ctrl" href='${pageData.createPageLink(1)}'>首页</a>
+		<a target="_self" class="btn ctrl" href='${pageData.createPageLink(pageData.getPreviousPage())}'>上一页</a>
+		#{/else}
+		#{list items:pageData.createPages(10), as:'pd'}
+            #{if pd == pageData.getPage()}
+            	<span class="btn current">${pd}</span> 
+            #{/if}
+            #{else}
+                <a class="btn" target="_self" href='${pageData.createPageLink(pd)}'>${pd}</a>
+            #{/else}
+       #{/list}
+       #{if pageData.isLastPage()}       		
+       		<a target="_self" class="btn ctrl no" href='javascript:void(0);'>下一页</a>
+       		<a target="_self" class="btn ctrl no" href="javascript:void(0);" >尾页</a>
+       #{/if}
+       #{else}       	
+       		<a target="_self" class="btn ctrl" href='${pageData.createPageLink(pageData.getNextPage())}'>下一页</a>
+       		<a target="_self" class="btn ctrl" href='${pageData.createPageLink(pageData.getTotalPage())}'>尾页</a>
+       #{/else}
+       </div>
+#{/if}
+*{
+#{else}
+ <div class="page-change">
+        <a target="_self" class="btn ctrl no" href="javascript:void(0);"  >首页</a>
+        <a target="_self" class="btn ctrl no" href="javascript:void(0);"  >上一页</a> 
+        <span class="btn current">1</span> 
+        <a target="_self" class="btn ctrl no" href="javascript:void(0);" >下一页</a>
+        <a target="_self" class="btn ctrl no " href="javascript:void(0);" >尾页</a>
+    </div>
+#{/else}
+}*
+<!-- 分页 end -->

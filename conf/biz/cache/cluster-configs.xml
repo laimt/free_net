@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configs>
-    <!--
+
+<configs> 
+  <!--
         prefix：用于定位该缓存对应的服务端
         client：对应conf\env\cache-servers.xml中配置的实际缓存服务端
         cache_time：缓存时间，单位：秒
-    -->
-    <!-- rowcache -->
-    <!--
+    -->  
+  <!-- rowcache -->  
+  <!--
     <config prefix="demo_r_" client="client0" cache_time="864000"
         comment="" />
-    -->
-    <!-- listcache -->
-    <!--
+    -->  
+  <!-- listcache -->  
+  <!--
     <config prefix="demo_l_" client="client0" cache_time="864000"
         comment="" />
-    -->
+    -->  
+  <!-- rowcache -->  
+  <config client="client0" prefix="FnDomainConfDDL_v1" cache_time="86400" comment=""/>  
+  <config client="client0" prefix="FnBasicConfDDL_v1" cache_time="86400" comment=""/>  
+  
+  <!-- listcache -->  
 </configs>
