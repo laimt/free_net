@@ -30,7 +30,7 @@ public class BasicConf extends WebController {
 		Pager<FnBasicConfModel> pageData = new Pager<FnBasicConfModel>(count, page, pageSize);
 		pageData.setList(result);
 		
-		renderTemplate("web/basicConf/rel.html", pageData, page);
+		renderTemplate("web/basicConf/list.html", pageData, page);
 	}
 	
 }

@@ -6,7 +6,7 @@ import jws.mvc.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+    	redirect("web/BasicConf.list");
     }
     
     public static void error() {
